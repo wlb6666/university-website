@@ -334,3 +334,9 @@ li {
     grid-template-columns: 1fr;
   }
 }
+
+/* 组织机构页面（理事会 / 监事会 / 党群结构）的正文条目 */
+.content-section > p {
+  margin: 0 0 12px;
+  padding-left: 4px;
+}
