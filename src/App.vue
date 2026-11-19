@@ -85,11 +85,11 @@ function changeContent(pageName) {
   <header class="top-header">
     <div class="header-container">
       <a class="logo-area" href="#" aria-label="江西软件职业技术大学首页">
-        <img :src="imageUrl('logo.png')" alt="校徽" class="logo-img" />
-        <span class="logo-text">
-          江西软件职业技术大学
-          <small>JIANGXI UNIVERSITY OF SOFTWARE PROFESSIONAL TECHNOLOGY</small>
-        </span>
+        <img
+          :src="imageUrl('logo.png')"
+          alt="江西软件职业技术大学"
+          class="logo-img"
+        />
       </a>
 
       <nav class="main-nav" aria-label="主导航">

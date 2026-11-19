@@ -20,9 +20,11 @@ li {
 }
 
 .top-header {
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
   z-index: 100;
 }
 
@@ -42,9 +44,10 @@ li {
 }
 
 .logo-img {
-  height: 50px;
-  width: 50px;
+  height: 52px;
+  width: auto;
   object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.55));
 }
 
 .logo-text {
@@ -52,13 +55,14 @@ li {
   flex-direction: column;
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
 }
 
 .logo-text small {
   margin-top: 2px;
   font-size: 9px;
-  color: #666;
+  color: rgba(255, 255, 255, 0.88);
   font-weight: normal;
 }
 
@@ -76,12 +80,14 @@ li {
   padding: 10px 0;
   font-size: 16px;
   font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
   transition: color 0.3s;
 }
 
 .nav-list > li > a:hover,
 .nav-list > li > a.active {
-  color: #750d87;
+  color: #ffd75e;
 }
 
 .dropdown {
@@ -104,6 +110,8 @@ li {
   padding: 8px 20px;
   white-space: nowrap;
   font-size: 14px;
+  color: #333;
+  text-shadow: none;
 }
 
 .dropdown li a:hover {
@@ -121,17 +129,31 @@ li {
 .campus-tag {
   padding: 4px 10px;
   border-radius: 20px;
-  color: #750d87;
-  background-color: #e8d5ef;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .banner-section {
   width: 100%;
-  height: 500px;
+  height: 560px;
   background-image: url('../images/banner.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
+}
+
+/* 顶部渐变遮罩：保证叠加在大图上的校名与导航清晰可读 */
+.banner-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 42%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.32) 45%, rgba(0, 0, 0, 0));
+  pointer-events: none;
 }
 
 .banner-section::after {
@@ -277,6 +299,22 @@ li {
   }
 }
 
+@media (max-width: 1280px) {
+  .header-container {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .nav-list {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 1100px) {
   .header-container {
     flex-wrap: wrap;
@@ -292,11 +330,15 @@ li {
   }
 
   .banner-section {
-    height: 360px;
+    height: 400px;
   }
 }
 
 @media (max-width: 768px) {
+  .logo-img {
+    height: 42px;
+  }
+
   .header-tools {
     display: none;
   }
@@ -311,7 +353,7 @@ li {
   }
 
   .banner-section {
-    height: 220px;
+    height: 280px;
   }
 
   .content-wrapper {
